@@ -1,20 +1,17 @@
-# power switch circuit with auto power off and on.
+## 🔌 Latching Power Switch Circuit with Auto Power OFF/ON
+### 📋 Overview
+This Arduino-based project implements a `latching power switch` using a pushbutton and a MOSFET transistor, with `automatic power-off` after a set duration and `automatic power-on` after a pause. An LED connected via PWM represents partial brightness control.
 
-📋 Overview
+### ⚙️ Features
+- Press the button to `turn on` the power (via MOSFET).
+- Device `stays on for 10 seconds`, then automatically powers off.
+- After staying off for `5 seconds`, it automatically powers on again.
+- `PWM LED` shows activity at 25% brightness when power is on.
+- `Serial monitor` logs the power state changes.
 
-This Arduino-based project implements a latching power switch using a pushbutton and a MOSFET transistor, with automatic power-off after a set duration and automatic power-on after a pause. An LED connected via PWM represents partial brightness control.
-
-🧠 Code Explanation
-⸻
-
-⚙️ Features
-	•	Press the button to turn on the power (via MOSFET).
-	•	Device stays on for 10 seconds, then automatically powers off.
-	•	After staying off for 5 seconds, it automatically powers on again.
-	•	PWM LED shows activity at 25% brightness when power is on.
-	•	Serial monitor logs the power state changes.
-
- const int buttonPin = 2;    // Pushbutton on digital pin 2
+### 🧠 Code
+```cpp
+const int buttonPin = 2;    // Pushbutton on digital pin 2
 const int latchPin = 5;     // Transistor base for MOSFET control
 const int pwmPin = 9;       // PWM pin for LED brightness
 
@@ -63,11 +60,12 @@ void loop() {
     analogWrite(pwmPin, 64);      // 25% LED brightness
     Serial.println("Auto Power ON");
   }
-  }
-  ------
-  🔌 Applications
-	•	DIY power timers
-	•	Energy-saving circuits
-	•	Interactive LED displays
-	•	Auto-resetting test benches
+}
+```
 
+### 💡 Applications
+- `DIY power timers`  
+- `Energy-saving circuits`  
+- `Interactive LED displays`  
+- `Auto-resetting test benches`  
+- `Low-power embedded projects that need periodic activity`
